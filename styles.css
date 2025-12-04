@@ -1,0 +1,26 @@
+:root{
+  --bg: #f7f8fb;
+  --card: #ffffff;
+  --accent: #2b7cff;
+  --muted: #666;
+}
+*{box-sizing:border-box}
+body{font-family:Segoe UI, Roboto, Arial, sans-serif;background:var(--bg);margin:0;padding:24px;color:#222}
+.container{max-width:880px;margin:0 auto}
+h1{text-align:center}
+.card{background:var(--card);padding:18px;border-radius:8px;margin:18px 0;box-shadow:0 2px 8px rgba(20,20,40,0.05)}
+label{display:block;margin:8px 0 6px;font-weight:600}
+input[type=text],textarea{width:100%;padding:10px;border:1px solid #d8dbe6;border-radius:6px;font-size:14px}
+button{background:var(--accent);color:white;border:none;padding:10px 14px;border-radius:6px;font-weight:700;cursor:pointer;margin-top:12px}
+button:active{transform:translateY(1px)}
+#wishlists > .entry{padding:12px;border:1px solid #eef0f6;border-radius:6px;margin:10px 0}
+.entry h3{margin:0 0 6px}
+.muted{color:var(--muted);font-size:13px}
+.items{margin-left:18px}
+
+.actions{display:flex;gap:8px}
+.btn{background:var(--accent);color:white;border:none;padding:6px 10px;border-radius:6px;font-weight:700;cursor:pointer}
+.btn:active{transform:translateY(1px)}
+.btn-secondary{background:#e6eefc;color:#0b3a8a}
+.btn-danger{background:#ff4d4f}
+

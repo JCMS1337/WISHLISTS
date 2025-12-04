@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Вишлисты</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Вишлисты</h1>
+
+      <section class="card">
+        <h2>Добавить вишлист</h2>
+        <form id="wishlistForm">
+          <label for="name">Имя</label>
+          <input id="name" name="name" type="text" required placeholder="Введите ваше имя" />
+
+          <label for="items">Пункты (каждый пункт с новой строки)</label>
+          <textarea id="items" name="items" rows="6" placeholder="Напишите желаемые вещи, по одной в строке" required></textarea>
+
+          <button id="addBtn" type="submit">ДОБАВИТЬ</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Список всех вишлистов</h2>
+        <div id="status">Загрузка...</div>
+        <div id="wishlists"></div>
+      </section>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
