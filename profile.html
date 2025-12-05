@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Профиль</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <div class="nav-left"></div>
+        <h1>🎁 Вишлисты</h1>
+        <div class="nav-right">
+          <button id="themeToggle" class="theme-toggle">🌙</button>
+          <a href="index.html" class="nav-link">← На главную</a>
+          <button id="logoutBtn" class="btn btn-danger">Выход</button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <h1>Мой профиль</h1>
+        
+        <div id="profileInfo">
+          <div class="profile-header">
+            <div class="avatar" id="avatar"></div>
+            <div>
+              <h2 id="username"></h2>
+              <p id="email" class="muted"></p>
+            </div>
+          </div>
+
+          <form id="profileForm">
+            <label for="bio">Об этом вишлисте</label>
+            <textarea id="bio" name="bio" rows="4" placeholder="Расскажите о себе или своих интересах"></textarea>
+
+            <button id="saveBtn" type="submit" class="btn">Сохранить профиль</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Мой вишлист</h2>
+        
+        <form id="wishlistForm">
+          <label for="wishlistTitle">Название вишлиста</label>
+          <input id="wishlistTitle" name="wishlistTitle" type="text" placeholder="Например: День рождения 2025" />
+
+          <label for="wishlistDescription">Описание</label>
+          <textarea id="wishlistDescription" name="wishlistDescription" rows="3" placeholder="Дополнительная информация о вашем вишлисте"></textarea>
+
+          <label for="wishlistCategory">Категория интересов</label>
+          <select id="wishlistCategory" name="wishlistCategory">
+            <option value="general">Общее</option>
+            <option value="tech">Технология</option>
+            <option value="books">Книги</option>
+            <option value="games">Игры</option>
+            <option value="sports">Спорт</option>
+            <option value="art">Искусство</option>
+            <option value="other">Другое</option>
+          </select>
+
+          <label for="items">Желаемые товары (по одному в строке)</label>
+          <textarea id="items" name="items" rows="6" placeholder="1. Товар 1&#10;2. Товар 2&#10;3. Товар 3" required></textarea>
+
+          <button id="addItemBtn" type="submit" class="btn">Добавить/Обновить вишлист</button>
+        </form>
+
+        <div id="userWishlistsList"></div>
+      </section>
+    </main>
+
+    <script type="module" src="profile.js"></script>
+  </body>
+</html>

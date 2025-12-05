@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Вход или регистрация</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .auth-toggle {
+        display: flex;
+        gap: 0;
+        border-radius: 6px;
+        overflow: hidden;
+        margin-bottom: 20px;
+      }
+      .auth-toggle button {
+        flex: 1;
+        margin: 0;
+        padding: 12px;
+        background: #f0f0f0;
+        color: #333;
+        border: 2px solid var(--border);
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+      body.dark-theme .auth-toggle button {
+        background: #3d3d3d;
+        color: var(--text);
+      }
+      .auth-toggle button.active {
+        background: var(--accent);
+        color: white;
+        border-color: var(--accent);
+      }
+      .auth-form {
+        display: none;
+      }
+      .auth-form.active {
+        display: block;
+      }
+      .theme-toggle-auth {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="themeToggle" class="theme-toggle-auth">🌙</button>
+    <main class="container auth-container">
+      <div class="card auth-card">
+        <h1>🎁 Вишлисты</h1>
+
+        <div class="auth-toggle">
+          <button id="loginToggle" class="active">Вход</button>
+          <button id="signupToggle">Регистрация</button>
+        </div>
+
+        <!-- Login Form -->
+        <form id="loginForm" class="auth-form active">
+          <label for="loginEmail">Email</label>
+          <input id="loginEmail" name="email" type="email" required placeholder="example@mail.com" />
+
+          <label for="loginPassword">Пароль</label>
+          <input id="loginPassword" name="password" type="password" required placeholder="••••••••" />
+
+          <button id="loginBtn" type="submit">Войти</button>
+        </form>
+
+        <!-- Signup Form -->
+        <form id="signupForm" class="auth-form">
+          <label for="signupUsername">Никнейм</label>
+          <input id="signupUsername" name="username" type="text" required placeholder="Ваш ник" />
+
+          <label for="signupEmail">Email</label>
+          <input id="signupEmail" name="email" type="email" required placeholder="example@mail.com" />
+
+          <label for="signupPassword">Пароль</label>
+          <input id="signupPassword" name="password" type="password" required placeholder="••••••••" minlength="6" />
+
+          <label for="signupConfirmPassword">Подтвердить пароль</label>
+          <input id="signupConfirmPassword" name="confirmPassword" type="password" required placeholder="••••••••" />
+
+          <button id="signupBtn" type="submit">Зарегистрироваться</button>
+        </form>
+
+        <div id="error" class="error"></div>
+      </div>
+    </main>
+
+    <script type="module" src="auth-unified.js"></script>
+  </body>
+</html>

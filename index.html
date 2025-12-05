@@ -7,24 +7,25 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <header class="header">
+      <nav class="nav">
+        <div class="nav-left"></div>
+        <h1>🎁 Вишлисты</h1>
+        <div class="nav-right">
+          <button id="searchToggle" class="search-toggle">🔍</button>
+          <button id="themeToggle" class="theme-toggle">🌙</button>
+          <a id="profileLink" href="profile.html" class="nav-link"></a>
+        </div>
+      </nav>
+      <div id="searchPanel" class="search-panel hidden">
+        <input id="searchInput" type="text" placeholder="Поиск по нику или хешу..." class="search-input" />
+      </div>
+    </header>
+
     <main class="container">
-      <h1>Вишлисты</h1>
-
       <section class="card">
-        <h2>Добавить вишлист</h2>
-        <form id="wishlistForm">
-          <label for="name">Имя</label>
-          <input id="name" name="name" type="text" required placeholder="Введите ваше имя" />
-
-          <label for="items">Пункты (каждый пункт с новой строки)</label>
-          <textarea id="items" name="items" rows="6" placeholder="Напишите желаемые вещи, по одной в строке" required></textarea>
-
-          <button id="addBtn" type="submit">ДОБАВИТЬ</button>
-        </form>
-      </section>
-
-      <section class="card">
-        <h2>Список всех вишлистов</h2>
+        <h2>Все вишлисты</h2>
+        <div id="filterButtons" class="filter-buttons"></div>
         <div id="status">Загрузка...</div>
         <div id="wishlists"></div>
       </section>

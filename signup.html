@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container auth-container">
+      <div class="card auth-card">
+        <h1>Создать аккаунт</h1>
+        <form id="signupForm">
+          <label for="username">Никнейм</label>
+          <input id="username" name="username" type="text" required placeholder="Ваш ник" />
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required placeholder="example@mail.com" />
+
+          <label for="password">Пароль</label>
+          <input id="password" name="password" type="password" required placeholder="••••••••" minlength="6" />
+
+          <label for="confirmPassword">Подтвердить пароль</label>
+          <input id="confirmPassword" name="confirmPassword" type="password" required placeholder="••••••••" />
+
+          <button id="signupBtn" type="submit">Зарегистрироваться</button>
+        </form>
+
+        <p class="center-text">
+          Уже есть аккаунт? <a href="login.html">Войти</a>
+        </p>
+        <div id="error" class="error"></div>
+      </div>
+    </main>
+
+    <script type="module" src="auth.js"></script>
+  </body>
+</html>
