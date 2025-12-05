@@ -21,10 +21,10 @@ body{font-family:Segoe UI, Roboto, Arial, sans-serif;background:var(--bg);margin
 .container{max-width:1000px;margin:0 auto;padding:24px}
 
 .header{background:var(--card);box-shadow:0 2px 8px rgba(20,20,40,0.05);position:sticky;top:0;z-index:100}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;gap:16px}
-.nav-left{flex:1}
-.nav h1{margin:0;font-size:24px;flex-shrink:0;text-align:center;flex:1}
-.nav-right{display:flex;align-items:center;gap:8px;flex:1;justify-content:flex-end}
+.nav{display:flex;justify-content:center;align-items:center;padding:16px 24px;gap:16px;position:relative}
+.nav-left{position:absolute;left:24px;display:flex;align-items:center;gap:8px}
+.nav h1{margin:0;font-size:24px;flex-shrink:0;text-align:center}
+.nav-right{position:absolute;right:24px;display:flex;align-items:center;gap:8px;justify-content:flex-end}
 .search-panel{background:var(--card);padding:12px 24px;border-bottom:1px solid var(--border);display:flex;justify-content:center}
 .search-panel.hidden{display:none}
 .search-input{padding:8px 12px;border:1px solid var(--border);border-radius:6px;font-size:14px;width:300px;background:var(--card);color:var(--text);transition:all 0.2s}
@@ -103,11 +103,48 @@ body.dark-theme .wishlist-card:hover{box-shadow:0 4px 12px rgba(0,0,0,0.4)}
 body.dark-theme .card-footer{background:#1a1a1a}
 
 @media(max-width:768px){
-  .nav-right{flex-wrap:wrap}
-  .search-input{width:100%}
+  .nav{padding:12px 16px}
+  .nav-left{left:16px}
+  .nav-right{right:16px;gap:4px}
+  .nav h1{font-size:20px}
+  .search-input{width:calc(100vw - 48px);max-width:100%}
+  .search-panel{padding:10px 16px}
+  .search-toggle,.theme-toggle{padding:6px;font-size:18px}
+  .nav-link{padding:6px 8px;font-size:14px}
+  .container{padding:12px;max-width:100%}
+  .card{padding:12px;margin:12px 0}
+  .wishlist-card{margin:8px 0}
+  .card-header{padding:12px}
+  .card-body{padding:12px}
+  .card-body h4{font-size:16px}
   .entry-header{flex-direction:column}
-  .actions{width:100%}
-  .filter-buttons{flex-direction:column}
-  .filter-btn{width:100%}
+  .actions{width:100%;flex-direction:column}
+  .filter-buttons{flex-direction:column;gap:6px}
+  .filter-btn{width:100%;padding:10px;font-size:14px}
+  input[type=text],input[type=email],input[type=password],textarea,select{padding:8px;font-size:16px}
+  button{padding:8px 12px;font-size:14px}
+  .profile-header{flex-direction:column;text-align:center}
+  .avatar{width:60px;height:60px;font-size:24px}
+  .avatar-small{width:36px;height:36px;font-size:16px}
+  .wishlist-entry{padding:10px;margin:8px 0}
+  h1,h2,h3{font-size:18px;margin:0 0 8px}
+  .muted{font-size:12px}
+}
+
+@media(max-width:480px){
+  .nav{padding:10px 12px}
+  .nav-left{left:12px}
+  .nav-right{right:12px}
+  .nav h1{font-size:18px}
+  .search-input{width:calc(100vw - 40px)}
+  .search-panel{padding:8px 12px}
+  .container{padding:8px}
+  .card{padding:10px;margin:8px 0}
+  .card-header{padding:10px}
+  .card-body{padding:10px}
+  .search-toggle,.theme-toggle{padding:4px;font-size:16px}
+  .nav-link{padding:4px 6px;font-size:12px}
+  .filter-btn{padding:8px}
+  button{padding:6px 10px;font-size:12px}
 }
 
