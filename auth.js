@@ -7,6 +7,7 @@ import {
   onAuthStateChanged,
   ref,
   set,
+  update,
   get,
   redirectIfAuth,
   redirectIfNotAuth
@@ -83,8 +84,8 @@ function setupSignupPage() {
       const userCred = await createUserWithEmailAndPassword(auth, email, password);
       const userId = userCred.user.uid;
 
-      // Save user profile to DB
-      await set(ref(db, `users/${userId}`), {
+      // Save user profile to DB without removing passwordHash
+      await update(ref(db, `users/${userId}`), {
         username,
         email,
         createdAt: Date.now(),

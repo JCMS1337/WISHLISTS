@@ -6,6 +6,7 @@ import {
   onAuthStateChanged,
   ref,
   set,
+  update,
   redirectIfAuth,
   redirectIfNotAuth,
   hashPassword
@@ -104,8 +105,8 @@ signupForm.addEventListener('submit', async (e) => {
     const userCred = await createUserWithEmailAndPassword(auth, email, password);
     const userId = userCred.user.uid;
 
-    // Save user profile to Realtime Database
-    await set(ref(db, `users/${userId}`), {
+    // Save user profile to Realtime Database without removing passwordHash
+    await update(ref(db, `users/${userId}`), {
       username,
       email,
       createdAt: Date.now(),
