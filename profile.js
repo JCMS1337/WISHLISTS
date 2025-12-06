@@ -117,11 +117,25 @@ async function loadUserWishlists() {
         <ol class="items">
           ${(item.items || []).map(it => `<li>${it}</li>`).join('')}
         </ol>
-        <small class="muted">hash: ${item.hash?.slice(0, 12)}...</small>
+        <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+          <small class="muted" style="font-family:monospace;background:var(--border);padding:4px 8px;border-radius:4px;word-break:break-all;">${item.hash || 'N/A'}</small>
+          <button class="copy-hash-btn btn btn-secondary" data-hash="${item.hash || ''}" style="padding:4px 8px;font-size:12px;">📋 Копировать</button>
+        </div>
       `;
 
       el.querySelector('.edit-btn').addEventListener('click', () => editWishlist(id, item));
       el.querySelector('.delete-btn').addEventListener('click', () => deleteWishlist(id));
+      el.querySelector('.copy-hash-btn').addEventListener('click', (e) => {
+        const hash = e.target.getAttribute('data-hash');
+        if (hash) {
+          navigator.clipboard.writeText(hash).then(() => {
+            const btn = e.target;
+            const oldText = btn.textContent;
+            btn.textContent = '✓ Скопировано';
+            setTimeout(() => { btn.textContent = oldText; }, 2000);
+          }).catch(() => alert('Ошибка копирования'));
+        }
+      });
 
       container.appendChild(el);
     }
