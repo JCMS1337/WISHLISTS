@@ -1,14 +1,12 @@
+
 import {
   auth,
   db,
   signOut,
   onAuthStateChanged,
   ref,
-  get,
-  redirectIfNotAuth
+  get
 } from './firebase-config.js';
-
-redirectIfNotAuth('/auth.html');
 
 let allUsers = {};
 let currentFilter = 'all';
@@ -32,26 +30,27 @@ document.getElementById('themeToggle').addEventListener('click', () => {
 });
 
 onAuthStateChanged(auth, async (user) => {
-  if (!user) {
-    window.location.href = '/auth.html';
-    return;
-  }
-  
-  currentUserId = user.uid;
-  loadTheme();
-  
-  // Update profile link with username
-  try {
-    const snapshot = await get(ref(db, `users/${user.uid}`));
-    const userData = snapshot.val();
-    const username = userData?.username || user.email?.split('@')[0] || 'Профиль';
+  if (user) {
+    currentUserId = user.uid;
+    // Update profile link with username
+    try {
+      const snapshot = await get(ref(db, `users/${user.uid}`));
+      const userData = snapshot.val();
+      const username = userData?.username || user.email?.split('@')[0] || 'Профиль';
+      const profileLink = document.getElementById('profileLink');
+      profileLink.textContent = username;
+      profileLink.href = 'profile.html';
+    } catch (err) {
+      console.error('Error loading username:', err);
+    }
+  } else {
+    currentUserId = null;
+    // Показываем ссылку на авторизацию
     const profileLink = document.getElementById('profileLink');
-    profileLink.textContent = username;
-    profileLink.href = 'profile.html';
-  } catch (err) {
-    console.error('Error loading username:', err);
+    profileLink.textContent = 'Войти';
+    profileLink.href = 'auth.html';
   }
-  
+  loadTheme();
   await loadAllUsers();
 });
 
